@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      body, form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .ocupado {
+        background-color: #ff6c6c;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <input id="nombre" type="text" placeholder="Nombre...">
+      <input id="edad" type="number" placeholder="Edad...">
+      <input id="asiento" type="number" placeholder="Asiento...">
+      <button type="button" id="boton">Reservar</button>
+    </form>
+    <h3 id="respuesta"></h3>
+    <div id="tabla-contenedor">
+      <table id="tabla"></table>
+    </div>
+    <script>
+      var plazas = [
+        {Asiento: 1, Ocupado:false},
+        {Asiento: 2, Ocupado:false},
+        {Asiento: 3, Ocupado:false},
+        {Asiento: 4, Ocupado:false},
+        {Asiento: 5, Ocupado:true , Nombre: "Antonio Alba"},
+        {Asiento: 6, Ocupado:false},
+        {Asiento: 7, Ocupado:false},
+        {Asiento: 8, Ocupado:false},
+        {Asiento: 9, Ocupado:false},
+        {Asiento: 10, Ocupado:false}
+      ];
+      
+      tabla = document.getElementById("tabla");
+      function cargarTabla() {
+        tabla.innerHTML = "";
+        plazas.forEach(element => {
+        tabla.innerHTML += '<tr' + (element.Ocupado ? ' class="ocupado"' : ' class="libre"') + '>Asiento ' + element.Asiento + ': ' + (element.Ocupado ? element.Nombre : 'Libre') + ' </tr>'
+      });
+      }
+
+      cargarTabla();
+      
+      boton = document.getElementById("boton").addEventListener("click", function() {
+        let nombre = document.getElementById("nombre").value;
+        let edad = document.getElementById("edad").value;
+        let asiento = document.getElementById("asiento").value;
+        let respuesta = document.getElementById("respuesta");
+        if (asiento >= 1 && asiento <= 10){
+          if (plazas[asiento-1].Ocupado) {
+            respuesta.innerHTML = "";
+            respuesta.innerHTML += "El asiento está ocupado";
+          } else {
+            plazas[asiento-1].Ocupado  = true;
+            plazas[asiento-1].Nombre = nombre + " " + edad;
+          }
+        } else {
+          respuesta.innerHTML = "";
+          respuesta.innerHTML += "El asiento no existe";
+          
+        }
+        
+        cargarTabla();
+      });
+      </script>
+  </body>
+</html>

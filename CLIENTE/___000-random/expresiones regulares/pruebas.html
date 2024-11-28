@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+        const numeros=[3,45,6,23,11,52];
+        function sumarNumeros(array)
+        {
+            return array.reduce((acumulador,valor)=>acumulador+valor,0);
+        }
+        console.log(sumarNumeros(numeros));
+        function numeroMayor(array)
+        {
+            return Math.max(...array);
+        }
+        console.log(numeroMayor(numeros));
+        function filtrarPares(array)
+        {
+            const predicado=valor=>valor%2===0;
+            return array.filter(predicado);
+        }
+        console.log(filtrarPares(numeros));
+
+        function esPrimo(numero)
+        {
+            if (numero <=1) return false;
+            if (numero<=3) return true;
+            for(let i=2; i<=numero-1;i++)
+        {
+            if (numero %i ===0) return false;
+        }
+        return true;
+
+        }
+        function filtrarPrimos(array)
+        {
+            return array.filter(esPrimo);
+        }
+        const primos=filtrarPrimos(numeros);console.log(primos);
+        function ordenarMenorMayor(array)
+        {
+            return array.slice().sort((a,b)=> a-b)
+        }
+        const ordenados=ordenarMenorMayor(numeros);
+        console.log(ordenados,numeros);
+
+
+
+
+
+        function ordenarDesdePosicion(array,posicion)
+        {
+            /*Compruebo que sea >=0 y nunca superios a la longitud
+            Si es este caso voy a devolver una copia*/
+            if (posicion <0 || posicion>= array.length)
+            {
+                return array.slice();
+            }
+            /*Voy a dividir en dos partes el arry
+            una desde la posicion 0 hasta la posicion
+            y el resto el que quiero ordenar*/
+            const arrayInicial=array.slice(0,posicion);
+            const arrayOrdenar=array.slice(posicion);
+            const parteordenada=arrayOrdenar.sort((a,b)=> a-b);
+            return arrayInicial.concat(parteordenada);
+        }
+        const posiciones=ordenarDesdePosicion(numeros,2);
+        console.log(posiciones);
+
+        const productos=[
+            {nombre:"Producto 1", precio:10.99},
+            {nombre:"Producto 2",precio:5.50},
+            {nombre:"Producto 3",precio:12.00},
+            {nombre:"Producto 4",precio:7.75},
+            {nombre:"Producto 5",precio:3.99}
+        ];
+        /*Precio Total*/
+        /*Voy a sumar o acumular cada precio,
+        esto de acumular suena a........ reduce*/
+        function calculaPrecioTotal(array)
+        {
+            return array.reduce((acum,valor)=>acum+valor.precio,0)
+        }
+        function filtraPorPrecioMaximo(array,maximo)
+        {
+            return array.filter(valor=> valor.precio<=maximo);
+        }
+        const preciopordebajode7=filtraPorPrecioMaximo(productos,7.00);
+    </script>
+  </body>
+</html>
