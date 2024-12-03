@@ -1,0 +1,19 @@
+.text-box-primera {
+  background-color: rgba(51, 68, 85, 0.4);
+  color: #ffffbb;
+  border: 1px solid rgba(34, 153, 51, 0.2);
+  font-size: 14px;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+}
+
+.text-box-primera {
+  background-color: rgba(248, 237, 40, 0.4);
+  color: rgb(187, 214, 255);
+  border: 1px solid rgba(207, 22, 44, 0.2);
+  font-size: 14px;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+}/*# sourceMappingURL=styles.css.map */

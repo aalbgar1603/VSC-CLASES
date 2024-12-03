@@ -1,0 +1,15 @@
+@mixin borde-redondo($radio){
+  border-radius: $radio;
+  
+}
+
+@mixin ver() {
+  border: 2px solid black;
+  margin: 1px;
+}
+
+@mixin transicion($tipo, $tiempo) {
+  transition: $tipo $tiempo;
+
+}
+

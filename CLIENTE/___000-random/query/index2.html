@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="formulario">
+      <input type="text" id="texto" placeholder="Texto...">
+      <input type="number" id="numero" placeholder="12345...">
+    </form>
+    <script>
+      const formulario = document.getElementById("formularios");
+      var inputs = [];
+      formulario.forEach((element, indice) => {
+        console.log(element + indice);
+        inputs.push(element);
+      });
+      console.log(inputs);
+      
+    </script>
+  </body>
+</html>

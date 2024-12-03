@@ -1,0 +1,23 @@
+@import './variables.scss';
+@import './mixin.scss';
+
+body {
+  background-color: $color-2;
+}
+
+button {
+  width: 400px;
+  height: 200px;
+  background-color: $color-1;
+  color: $color-3;
+  font-size: xx-large;
+  @include transicion(all, 300s);
+
+  // Aplica el hover a button
+  &:hover {
+    background-color: darken($color-2, 100%);
+    color: $color-4;
+    width: 4000px;
+    height: 2000px;
+  }
+}

@@ -1,0 +1,18 @@
+body {
+  background-color: orange;
+}
+
+button {
+  width: 400px;
+  height: 200px;
+  background-color: blue;
+  color: white;
+  font-size: xx-large;
+  transition: all 300s;
+}
+button:hover {
+  background-color: black;
+  color: yellow;
+  width: 4000px;
+  height: 2000px;
+}/*# sourceMappingURL=styles.css.map */
